@@ -12,12 +12,13 @@ var choice2 = document.querySelectorAll(".choice2")
 var choice3 = document.querySelectorAll(".choice3")
 var choice4 = document.querySelectorAll(".choice4")
 var submit = document.querySelectorAll(".submit")
-
+var timerDiv = document.querySelector(".timerDiv")
+var seconds = document.querySelector(".seconds")
 
 var ans = ""
 var wrong = 0
-
 var right= 0 
+var secondsLeft = 75
 
 
 var questions = [
@@ -53,15 +54,30 @@ var questions = [
 ];
 
 startBtn.addEventListener("click", quizStart)
+//startBtn.addEventListener("click", timer)
 questionBox.setAttribute("style", "display: none")
 questionBox2.setAttribute("style", "display: none")
 questionBox3.setAttribute("style", "display: none")
 questionBox4.setAttribute("style", "display: none")
 questionBox5.setAttribute("style", "display: none")
+timerDiv.setAttribute("style", "display: none")
 
 
+function quizStart (){
+timerDiv.setAttribute("style", "display: inline")
+var timer = setInterval(function (){
+//timerDiv.setAttribute("style", "display: inline")
+secondsLeft--
+seconds.textContent = secondsLeft
 
-function quizStart() {
+if (secondsLeft === 0) {
+  clearInterval(timer)
+}
+
+
+}, 100)
+question1()
+function question1() {
   
   startDisplay.setAttribute("style", "display: none")
   questionBox.setAttribute("style", "display: inline")
@@ -81,6 +97,7 @@ function quizStart() {
         right++
     } else {
         wrong++
+        
     }
     
     if (!document.querySelector("input[name='q1']:checked").value) {
@@ -234,3 +251,4 @@ function question3 (event) {
     
    
   }
+}
