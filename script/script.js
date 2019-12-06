@@ -14,11 +14,19 @@ var choice4 = document.querySelectorAll(".choice4")
 var submit = document.querySelectorAll(".submit")
 var timerDiv = document.querySelector(".timerDiv")
 var seconds = document.querySelector(".seconds")
+var finalPage = document.querySelector(".final")
+var timeScore = document.querySelector(".score")
+var rightWrong = document.querySelector(".right")
+
+
 
 var ans = ""
 var wrong = 0
+var wrong1 = 0
+
+
 var right= 0 
-var secondsLeft = 75
+//var secondsLeft = 75
 
 
 var questions = [
@@ -52,7 +60,7 @@ var questions = [
   },
   
 ];
-
+//var secondsLeft = 75
 startBtn.addEventListener("click", quizStart)
 //startBtn.addEventListener("click", timer)
 questionBox.setAttribute("style", "display: none")
@@ -60,23 +68,44 @@ questionBox2.setAttribute("style", "display: none")
 questionBox3.setAttribute("style", "display: none")
 questionBox4.setAttribute("style", "display: none")
 questionBox5.setAttribute("style", "display: none")
+finalPage.setAttribute("style", "display: none")
 timerDiv.setAttribute("style", "display: none")
-
+var secondsLeft = 75
+var realSecs =  -15
+//var hi = secondsLeft + realSecs
 
 function quizStart (){
-timerDiv.setAttribute("style", "display: inline")
-var timer = setInterval(function (){
-//timerDiv.setAttribute("style", "display: inline")
-secondsLeft--
-seconds.textContent = secondsLeft
 
-if (secondsLeft === 0) {
+
+timerDiv.setAttribute("style", "display: inline")
+//function wrongAnswer () {
+//  secondsLeft - 15
+//}
+
+if (wrong) {
+  seconds.textContent = secondsLeft - 15
+}
+var timer = setInterval(function (){
+
+var realSecs = secondsLeft--
+seconds.textContent = secondsLeft 
+console.log(realSecs)
+//console.log(secondsLeft)
+
+console.log(secondsLeft)
+if (secondsLeft <= 0) {
   clearInterval(timer)
+  secondsLeft.textContent = "00"
 }
 
-
-}, 100)
+}, 1000)
+//function wrongAnswer () {
+  //hi = secondsLeft - 15
+  
+  
+//}
 question1()
+
 function question1() {
   
   startDisplay.setAttribute("style", "display: none")
@@ -95,9 +124,10 @@ function question1() {
     var q1 = document.querySelector("input[name='q1']:checked")
     if (q1.value == 3) {
         right++
+        
     } else {
         wrong++
-        
+        //wrongAnswer()
     }
     
     if (!document.querySelector("input[name='q1']:checked").value) {
@@ -129,7 +159,9 @@ function question2 () {
     if (q2.value == 3) {
         right++
     } else {
-        wrong++
+      wrong++
+      //wrong.push("1")
+        
     }
     
     if (!document.querySelector("input[name='q2']:checked").value) {
@@ -163,7 +195,8 @@ function question3 (event) {
         if (q3.value == 1) {
             right++
         } else {
-            wrong++
+          wrong++
+          //wrongAnswer()
         }
         
         if (!document.querySelector("input[name='q3']:checked").value) {
@@ -199,7 +232,8 @@ function question3 (event) {
         if (q4.value == 1) {
             right++
         } else {
-            wrong++
+          wrong++
+          //wrongAnswer()
         }
         
         if (!document.querySelector("input[name='q4']:checked").value) {
@@ -236,14 +270,15 @@ function question3 (event) {
         if (q5.value == 1) {
             right++
         } else {
-            wrong++
+          wrong++
+          //wrongAnswer()
         }
         
         if (!document.querySelector("input[name='q5']:checked").value) {
             
         } else {
             questionBox5.setAttribute("style", "display: none")
-            startDisplay.setAttribute("style", "display: inline")
+            final ()
         }
     
        })
@@ -251,4 +286,16 @@ function question3 (event) {
     
    
   }
+
+        function final () {
+          timerDiv.setAttribute("style", "display: none")
+          finalPage.setAttribute("style", "display: inline")
+          clearInterval(timer)
+          timeScore.textContent = secondsLeft
+          rightWrong.textContent = right + "/5 " + "correct"
+          startBtn.addEventListener("click", quizStart) 
+        }
+
+
 }
+
