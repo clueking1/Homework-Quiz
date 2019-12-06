@@ -17,8 +17,13 @@ var seconds = document.querySelector(".seconds")
 var finalPage = document.querySelector(".final")
 var timeScore = document.querySelector(".score")
 var rightWrong = document.querySelector(".right")
+//var initalsInput = document.querySelector("#init").textContent
+var subBtn = document.querySelector(".subBtn")
+var scoreList = document.querySelector(".list")
 
 
+var score = localStorage.getItem("secondsLeft");
+var initals = localStorage.getItem("initalsInput");
 
 var ans = ""
 var wrong = 0
@@ -288,14 +293,28 @@ function question3 (event) {
   }
 
         function final () {
+          
           timerDiv.setAttribute("style", "display: none")
           finalPage.setAttribute("style", "display: inline")
           clearInterval(timer)
           timeScore.textContent = secondsLeft
           rightWrong.textContent = right + "/5 " + "correct"
-          startBtn.addEventListener("click", quizStart) 
+          
+        
+
+
+          
         }
 
-
+        subBtn.addEventListener("click", function(event){
+          
+          event.preventDefault()
+          var initalsInput = document.querySelector("#init").value
+          var player = document.createElement("li")
+          player.textContent = initalsInput + ", " + secondsLeft
+          scoreList.append(player)
+          localStorage.setItem("initalsInput", initalsInput);
+          localStorage.setItem("secondsleft", secondsLeft);
+        })
 }
 
