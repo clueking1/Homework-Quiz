@@ -17,21 +17,18 @@ var seconds = document.querySelector(".seconds")
 var finalPage = document.querySelector(".final")
 var timeScore = document.querySelector(".score")
 var rightWrong = document.querySelector(".right")
-//var initalsInput = document.querySelector("#init").textContent
 var subBtn = document.querySelector(".subBtn")
 var scoreList = document.querySelector(".list")
+var home = document.querySelector(".homeBtn")
 
 
-var score = localStorage.getItem("secondsLeft");
-var initals = localStorage.getItem("initalsInput");
+var score = localStorage.getItem("score");
+var initals = localStorage.getItem("initals");
 
 var ans = ""
 var wrong = 0
-var wrong1 = 0
-
-
 var right= 0 
-//var secondsLeft = 75
+
 
 
 var questions = [
@@ -65,9 +62,12 @@ var questions = [
   },
   
 ];
+
 //var secondsLeft = 75
 startBtn.addEventListener("click", quizStart)
 //startBtn.addEventListener("click", timer)
+
+
 questionBox.setAttribute("style", "display: none")
 questionBox2.setAttribute("style", "display: none")
 questionBox3.setAttribute("style", "display: none")
@@ -75,74 +75,75 @@ questionBox4.setAttribute("style", "display: none")
 questionBox5.setAttribute("style", "display: none")
 finalPage.setAttribute("style", "display: none")
 timerDiv.setAttribute("style", "display: none")
-var secondsLeft = 75
-var realSecs =  -15
-//var hi = secondsLeft + realSecs
 
+var secondsLeft = 75
+var hi = seconds
 function quizStart (){
 
-
+startDisplay.setAttribute("style", "display: none")
 timerDiv.setAttribute("style", "display: inline")
+
 //function wrongAnswer () {
-//  secondsLeft - 15
+//  seconds.textContent = secondsLeft - 15
 //}
 
-if (wrong) {
-  seconds.textContent = secondsLeft - 15
-}
+
+
+
+
 var timer = setInterval(function (){
 
-var realSecs = secondsLeft--
-seconds.textContent = secondsLeft 
-console.log(realSecs)
-//console.log(secondsLeft)
+  //function wrongAnswer () {
+  //  seconds.textContent = secondsLeft - 15
+  //}
+  
+
+secondsLeft--
+hi.textContent = secondsLeft 
 
 console.log(secondsLeft)
 if (secondsLeft <= 0) {
   clearInterval(timer)
-  secondsLeft.textContent = "00"
+  hi.textContent = "00"
 }
 
 }, 1000)
-//function wrongAnswer () {
-  //hi = secondsLeft - 15
+function wrongAnswer () {
+
+  hi.textContent = secondsLeft - 15
   
   
-//}
+}
+
+
 question1()
 
 function question1() {
-  
-  startDisplay.setAttribute("style", "display: none")
   questionBox.setAttribute("style", "display: inline")
   
-
- 
   question[0].append(questions[0].title)
   choice1[0].append(questions[0].choices[0])
   choice2[0].append(questions[0].choices[1])
   choice3[0].append(questions[0].choices[2])
   choice4[0].append(questions[0].choices[3])
 
-  submit[0].addEventListener("click",  function(event){
-    event.preventDefault()
-    var q1 = document.querySelector("input[name='q1']:checked")
-    if (q1.value == 3) {
-        right++
-        
-    } else {
-        wrong++
-        //wrongAnswer()
-    }
-    
-    if (!document.querySelector("input[name='q1']:checked").value) {
-        
-    } else {
-        question2 ()
-    }
-
-   })
-    
+    submit[0].addEventListener("click",  function(event){
+      event.preventDefault()
+      var q1 = document.querySelector("input[name='q1']:checked")
+      if (q1.value == 3) {
+          right++
+          
+      } else {
+          wrong++
+          wrongAnswer()
+      }
+      
+      if (!document.querySelector("input[name='q1']:checked").value) {
+          
+      } else {
+          question2 ()
+      }
+    })
 }
 
 function question2 () {
@@ -150,43 +151,36 @@ function question2 () {
   questionBox.setAttribute("style", "display: none")
   questionBox2.setAttribute("style", "display: inline")
   
-  
-  
   question[1].append(questions[1].title)
   choice1[1].append(questions[1].choices[0])
   choice2[1].append(questions[1].choices[1])
   choice3[1].append(questions[1].choices[2])
   choice4[1].append(questions[1].choices[3])
 
-  submit[1].addEventListener("click",  function(event){
-    event.preventDefault()
-    var q2 = document.querySelector("input[name='q2']:checked")
-    if (q2.value == 3) {
-        right++
-    } else {
-      wrong++
-      //wrong.push("1")
-        
-    }
-    
-    if (!document.querySelector("input[name='q2']:checked").value) {
-        
-    } else {
-        question3 (event)
-    }
+    submit[1].addEventListener("click",  function(event){
+      event.preventDefault()
+      var q2 = document.querySelector("input[name='q2']:checked")
+      if (q2.value == 3) {
+          right++
+      } else {
+        wrong++
+        wrongAnswer()
+      }
+      
+      if (!document.querySelector("input[name='q2']:checked").value) {
+          
+      } else {
+          question3 (event)
+      }
 
-   })
-    
+    })
 }
 
 
 function question3 (event) {
     event.preventDefault()
-    questionBox.setAttribute("style", "display: none")
     questionBox2.setAttribute("style", "display: none")
     questionBox3.setAttribute("style", "display: inline")
-    
-    
     
     question[2].append(questions[2].title)
     choice1[2].append(questions[2].choices[0])
@@ -194,36 +188,29 @@ function question3 (event) {
     choice3[2].append(questions[2].choices[2])
     choice4[2].append(questions[2].choices[3])
   
-    submit[2].addEventListener("click",  function(event){
-        event.preventDefault()
-        var q3 = document.querySelector("input[name='q3']:checked")
-        if (q3.value == 1) {
-            right++
-        } else {
-          wrong++
-          //wrongAnswer()
-        }
-        
-        if (!document.querySelector("input[name='q3']:checked").value) {
-            
-        } else {
-            question4 (event)
-        }
-    
-       })
-        
-    }
+      submit[2].addEventListener("click",  function(event){
+          event.preventDefault()
+          var q3 = document.querySelector("input[name='q3']:checked")
+          if (q3.value == 1) {
+              right++
+          } else {
+            wrong++
+          }
+          
+          if (!document.querySelector("input[name='q3']:checked").value) {
+              
+          } else {
+              question4 (event)
+          }
+      
+      })
+}
   
 
   function question4 (event) {
     event.preventDefault()
-    questionBox.setAttribute("style", "display: none")
-    questionBox.setAttribute("style", "display: none")
-    questionBox2.setAttribute("style", "display: none")
     questionBox3.setAttribute("style", "display: none")
     questionBox4.setAttribute("style", "display: inline")
-    
-    
     
     question[3].append(questions[3].title)
     choice1[3].append(questions[3].choices[0])
@@ -238,7 +225,6 @@ function question3 (event) {
             right++
         } else {
           wrong++
-          //wrongAnswer()
         }
         
         if (!document.querySelector("input[name='q4']:checked").value) {
@@ -247,21 +233,15 @@ function question3 (event) {
             question5 (event)
         }
     
-       })
+      })
         
     
   }
 
   function question5 (event) {
     event.preventDefault()
-    questionBox.setAttribute("style", "display: none")
-    questionBox.setAttribute("style", "display: none")
-    questionBox2.setAttribute("style", "display: none")
-    questionBox3.setAttribute("style", "display: none")
     questionBox4.setAttribute("style", "display: none")
     questionBox5.setAttribute("style", "display: inline")
-    
-    
     
     question[4].append(questions[4].title)
     choice1[4].append(questions[4].choices[0])
@@ -269,41 +249,33 @@ function question3 (event) {
     choice3[4].append(questions[4].choices[2])
     choice4[4].append(questions[4].choices[3])
   
-    submit[4].addEventListener("click",  function(event){
-        event.preventDefault()
-        var q5 = document.querySelector("input[name='q5']:checked")
-        if (q5.value == 1) {
-            right++
-        } else {
-          wrong++
-          //wrongAnswer()
-        }
-        
-        if (!document.querySelector("input[name='q5']:checked").value) {
-            
-        } else {
-            questionBox5.setAttribute("style", "display: none")
-            final ()
-        }
-    
-       })
-        
-    
-   
-  }
+      submit[4].addEventListener("click",  function(event){
+          event.preventDefault()
+          var q5 = document.querySelector("input[name='q5']:checked")
+          if (q5.value == 1) {
+              right++
+          } else {
+            wrong++
+          }
+          
+          if (!document.querySelector("input[name='q5']:checked").value) {
+              
+          } else {
+              final ()
+          }
+      
+        })
+}
 
         function final () {
-          
+          questionBox5.setAttribute("style", "display: none")
           timerDiv.setAttribute("style", "display: none")
           finalPage.setAttribute("style", "display: inline")
+          
           clearInterval(timer)
+          
           timeScore.textContent = secondsLeft
           rightWrong.textContent = right + "/5 " + "correct"
-          
-        
-
-
-          
         }
 
         subBtn.addEventListener("click", function(event){
@@ -313,8 +285,14 @@ function question3 (event) {
           var player = document.createElement("li")
           player.textContent = initalsInput + ", " + secondsLeft
           scoreList.append(player)
-          localStorage.setItem("initalsInput", initalsInput);
-          localStorage.setItem("secondsleft", secondsLeft);
+          localStorage.setItem("initals", initalsInput);
+          localStorage.setItem("score", secondsLeft);
+        })
+
+        home.addEventListener("click", function(){
+          finalPage.setAttribute("style", "display: none")
+          startDisplay.setAttribute("style", "display: inline")
+          
         })
 }
 
