@@ -20,10 +20,10 @@ var rightWrong = document.querySelector(".right")
 var subBtn = document.querySelector(".subBtn")
 var scoreList = document.querySelector(".list")
 var home = document.querySelector(".homeBtn")
+//var highScoreSet = localStorage.getItem
 
-
-var score = localStorage.getItem("score");
-var initals = localStorage.getItem("initals");
+var highScoreSet = localStorage.getItem("score");
+//var initals = localStorage.getItem("initals");
 
 var ans = ""
 var wrong = 0
@@ -101,7 +101,7 @@ var timer = setInterval(function (){
 secondsLeft--
 hi.textContent = secondsLeft 
 
-console.log(secondsLeft)
+//console.log(secondsLeft)
 if (secondsLeft <= 0) {
   clearInterval(timer)
   hi.textContent = "00"
@@ -111,7 +111,7 @@ if (secondsLeft <= 0) {
 function wrongAnswer () {
 
   hi.textContent = secondsLeft - 15
-  
+  secondsLeft -= 15
   
 }
 
@@ -195,6 +195,7 @@ function question3 (event) {
               right++
           } else {
             wrong++
+            wrongAnswer()
           }
           
           if (!document.querySelector("input[name='q3']:checked").value) {
@@ -225,6 +226,7 @@ function question3 (event) {
             right++
         } else {
           wrong++
+          wrongAnswer()
         }
         
         if (!document.querySelector("input[name='q4']:checked").value) {
@@ -256,12 +258,14 @@ function question3 (event) {
               right++
           } else {
             wrong++
+            wrongAnswer()
           }
           
           if (!document.querySelector("input[name='q5']:checked").value) {
               
           } else {
               final ()
+              displayHighscores (highScoreSet)
           }
       
         })
@@ -284,15 +288,34 @@ function question3 (event) {
           var initalsInput = document.querySelector("#init").value
           var player = document.createElement("li")
           player.textContent = initalsInput + ", " + secondsLeft
+          var highScore = highScoreSet + ';' + player.textContent
+
           scoreList.append(player)
-          localStorage.setItem("initals", initalsInput);
-          localStorage.setItem("score", secondsLeft);
+          localStorage.setItem("score", highScore);
+          //localStorage.setItem("score", secondsLeft);
         })
 
-        home.addEventListener("click", function(){
-          finalPage.setAttribute("style", "display: none")
-          startDisplay.setAttribute("style", "display: inline")
+        function displayHighscores (scoresString) {
+          var scoreArray = scoresString.split(";")
           
+        
+          
+          for (var i = 0; i < scoreArray.length; i++){
+            var playerScore = document.createElement("li")
+            playerScore.textContent = scoreArray[i]
+            scoreList.append(playerScore)
+          }
+          
+          
+          
+          
+          console.log(scoreArray)
+        }
+
+        home.addEventListener("click", function(){
+          //finalPage.setAttribute("style", "display: none")
+          //startDisplay.setAttribute("style", "display: inline")
+          location.reload()
         })
 }
 
