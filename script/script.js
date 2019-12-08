@@ -105,13 +105,14 @@ hi.textContent = secondsLeft
 if (secondsLeft <= 0) {
   clearInterval(timer)
   hi.textContent = "00"
+  
 }
 
 }, 1000)
 function wrongAnswer () {
 
-  hi.textContent = secondsLeft - 15
-  secondsLeft -= 15
+  if (secondsLeft <= 0) {} else {hi.textContent = secondsLeft - 15
+  secondsLeft -= 15}
   
 }
 
@@ -127,6 +128,14 @@ function question1() {
   choice3[0].append(questions[0].choices[2])
   choice4[0].append(questions[0].choices[3])
 
+  if (secondsLeft <= 0) {
+    clearInterval(timer)
+    hi.textContent = "00"
+    questionBox1.setAttribute("style", "visibility: hidden")
+    
+  }
+  
+  
     submit[0].addEventListener("click",  function(event){
       event.preventDefault()
       var q1 = document.querySelector("input[name='q1']:checked")
@@ -143,6 +152,9 @@ function question1() {
       } else {
           question2 ()
       }
+      
+  
+
     })
 }
 
@@ -157,7 +169,15 @@ function question2 () {
   choice3[1].append(questions[1].choices[2])
   choice4[1].append(questions[1].choices[3])
 
-    submit[1].addEventListener("click",  function(event){
+  if (secondsLeft <= 0) {
+    clearInterval(timer)
+    hi.textContent = "00"
+    questionBox2.setAttribute("style", "visibility: hidden")
+    
+  }  
+  
+  
+  submit[1].addEventListener("click",  function(event){
       event.preventDefault()
       var q2 = document.querySelector("input[name='q2']:checked")
       if (q2.value == 3) {
@@ -173,6 +193,8 @@ function question2 () {
           question3 (event)
       }
 
+     
+
     })
 }
 
@@ -187,8 +209,18 @@ function question3 (event) {
     choice2[2].append(questions[2].choices[1])
     choice3[2].append(questions[2].choices[2])
     choice4[2].append(questions[2].choices[3])
-  
-      submit[2].addEventListener("click",  function(event){
+    
+    if (secondsLeft <= 0) {
+      clearInterval(timer)
+      hi.textContent = "00"
+      questionBox3.setAttribute("style", "visibility: hidden")
+      
+    }
+      
+    
+    
+    
+        submit[2].addEventListener("click",  function(event){
           event.preventDefault()
           var q3 = document.querySelector("input[name='q3']:checked")
           if (q3.value == 4) {
@@ -219,6 +251,13 @@ function question3 (event) {
     choice3[3].append(questions[3].choices[2])
     choice4[3].append(questions[3].choices[3])
   
+    if (secondsLeft <= 0) {
+      clearInterval(timer)
+      hi.textContent = "00"
+      questionBox4.setAttribute("style", "visibility: hidden")
+      
+    }
+    
     submit[3].addEventListener("click",  function(event){
         event.preventDefault()
         var q4 =document.querySelector("input[name='q4']:checked")
@@ -251,7 +290,14 @@ function question3 (event) {
     choice3[4].append(questions[4].choices[2])
     choice4[4].append(questions[4].choices[3])
   
-      submit[4].addEventListener("click",  function(event){
+    if (secondsLeft <= 0) {
+      clearInterval(timer)
+      hi.textContent = "00"
+      
+    }  
+    
+    
+    submit[4].addEventListener("click",  function(event){
           event.preventDefault()
           var q5 = document.querySelector("input[name='q5']:checked")
           if (q5.value == 1) {
