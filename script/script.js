@@ -68,20 +68,20 @@ startBtn.addEventListener("click", quizStart)
 //startBtn.addEventListener("click", timer)
 
 
-questionBox.setAttribute("style", "display: none")
-questionBox2.setAttribute("style", "display: none")
-questionBox3.setAttribute("style", "display: none")
-questionBox4.setAttribute("style", "display: none")
-questionBox5.setAttribute("style", "display: none")
-finalPage.setAttribute("style", "display: none")
-timerDiv.setAttribute("style", "display: none")
+questionBox.setAttribute("style", "visibility: hidden")
+questionBox2.setAttribute("style", "visibility: hidden")
+questionBox3.setAttribute("style", "visibility: hidden")
+questionBox4.setAttribute("style", "visibility: hidden")
+questionBox5.setAttribute("style", "visibility: hidden")
+finalPage.setAttribute("style", "visibility: hidden")
+timerDiv.setAttribute("style", "visibility: hidden")
 
 var secondsLeft = 75
 var hi = seconds
 function quizStart (){
 
-startDisplay.setAttribute("style", "display: none")
-timerDiv.setAttribute("style", "display: inline")
+startDisplay.setAttribute("style", "visibility: hidden")
+timerDiv.setAttribute("style", "visibility: visible")
 
 //function wrongAnswer () {
 //  seconds.textContent = secondsLeft - 15
@@ -119,7 +119,7 @@ function wrongAnswer () {
 question1()
 
 function question1() {
-  questionBox.setAttribute("style", "display: inline")
+  questionBox.setAttribute("style", "visibility: visible")
   
   question[0].append(questions[0].title)
   choice1[0].append(questions[0].choices[0])
@@ -148,8 +148,8 @@ function question1() {
 
 function question2 () {
   event.preventDefault()
-  questionBox.setAttribute("style", "display: none")
-  questionBox2.setAttribute("style", "display: inline")
+  questionBox.setAttribute("style", "visibility: hidden")
+  questionBox2.setAttribute("style", "visibility: visible")
   
   question[1].append(questions[1].title)
   choice1[1].append(questions[1].choices[0])
@@ -179,8 +179,8 @@ function question2 () {
 
 function question3 (event) {
     event.preventDefault()
-    questionBox2.setAttribute("style", "display: none")
-    questionBox3.setAttribute("style", "display: inline")
+    questionBox2.setAttribute("style", "visibility: hidden")
+    questionBox3.setAttribute("style", "visibility: visible")
     
     question[2].append(questions[2].title)
     choice1[2].append(questions[2].choices[0])
@@ -210,8 +210,8 @@ function question3 (event) {
 
   function question4 (event) {
     event.preventDefault()
-    questionBox3.setAttribute("style", "display: none")
-    questionBox4.setAttribute("style", "display: inline")
+    questionBox3.setAttribute("style", "visibility: hidden")
+    questionBox4.setAttribute("style", "visibility: visible")
     
     question[3].append(questions[3].title)
     choice1[3].append(questions[3].choices[0])
@@ -242,8 +242,8 @@ function question3 (event) {
 
   function question5 (event) {
     event.preventDefault()
-    questionBox4.setAttribute("style", "display: none")
-    questionBox5.setAttribute("style", "display: inline")
+    questionBox4.setAttribute("style", "visibility: hidden")
+    questionBox5.setAttribute("style", "visibility: visible")
     
     question[4].append(questions[4].title)
     choice1[4].append(questions[4].choices[0])
@@ -272,9 +272,9 @@ function question3 (event) {
 }
 
         function final () {
-          questionBox5.setAttribute("style", "display: none")
-          timerDiv.setAttribute("style", "display: none")
-          finalPage.setAttribute("style", "display: inline")
+          questionBox5.setAttribute("style", "visibility: hidden")
+          timerDiv.setAttribute("style", "visibility: hidden")
+          finalPage.setAttribute("style", "visibility: visible")
           
           clearInterval(timer)
           
@@ -298,18 +298,11 @@ function question3 (event) {
         function displayHighscores (scoresString) {
           var scoreArray = scoresString.split(";")
           
-        
-          
-          for (var i = 0; i < scoreArray.length; i++){
+          for (var i = 1; i < scoreArray.length; i++){
             var playerScore = document.createElement("li")
             playerScore.textContent = scoreArray[i]
             scoreList.append(playerScore)
           }
-          
-          
-          
-          
-          console.log(scoreArray)
         }
 
         home.addEventListener("click", function(){

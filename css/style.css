@@ -1,0 +1,99 @@
+.background {
+    background-image: url("../images/darkness.png") ;
+    z-index: -1;
+}
+
+
+.timerDiv {
+    color: aliceblue;
+    width:250px;
+    margin: auto;
+
+}
+
+
+
+.home {
+   
+    width: 250px;
+    color: aliceblue;
+    margin: auto;
+    border: 3px groove aliceblue;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    background-color: #887d6f8c;
+    margin-top: 175px;
+}
+
+.questionDiv {
+    
+    width: 250px;
+    color: aliceblue;
+    margin: auto;
+    border: 3px groove aliceblue;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    background-color: #887d6f8c;
+    margin-top: -255px;
+    
+}
+
+.questionDiv2 {
+    width: 250px;
+    color: aliceblue;
+    margin: auto;
+    border: 3px groove aliceblue;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    background-color: #887d6f8c;
+    margin-top: -266px;
+}
+.questionDiv3 {
+    width: 250px;
+    color: aliceblue;
+    margin: auto;
+    border: 3px groove aliceblue;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    background-color: #887d6f8c;
+    margin-top: -268px;
+}
+.questionDiv4 {
+    width: 250px;
+    color: aliceblue;
+    margin: auto;
+    border: 3px groove aliceblue;
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    background-color: #887d6f8c;
+    margin-top: -245px;
+}
+.questionDiv5 {
+    width: 250px;
+    color: aliceblue;
+    margin: auto;
+    border: 3px groove aliceblue;
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    background-color: #887d6f8c;
+    margin-top: -255px;
+}
+
+.final {
+    width: 250px;
+    color: aliceblue;
+    margin: auto;
+    border: 3px groove aliceblue;
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    background-color: #887d6f8c;
+    margin-top: -369px;
+
+}
