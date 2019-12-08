@@ -57,10 +57,10 @@
     margin: auto;
     border: 3px groove aliceblue;
     border-radius: 20px;
-    padding: 40px;
+    padding: 30px;
     text-align: center;
     background-color: #887d6f8c;
-    margin-top: -268px;
+    margin-top: -281px;
 }
 .questionDiv4 {
     width: 250px;
@@ -68,10 +68,10 @@
     margin: auto;
     border: 3px groove aliceblue;
     border-radius: 20px;
-    padding: 45px;
+    padding: 30px;
     text-align: center;
     background-color: #887d6f8c;
-    margin-top: -245px;
+    margin-top: -281px;;
 }
 .questionDiv5 {
     width: 250px;
@@ -79,10 +79,10 @@
     margin: auto;
     border: 3px groove aliceblue;
     border-radius: 20px;
-    padding: 45px;
+    padding: 30px;
     text-align: center;
     background-color: #887d6f8c;
-    margin-top: -255px;
+    margin-top: -311px;
 }
 
 .final {

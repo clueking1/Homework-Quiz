@@ -44,21 +44,21 @@ var questions = [
   },
 
   {
-    title: "hiiiii",
-    choices: ["1", "2", "3", "4"],
-    answer: "1"
+    title: "how do I put an element on the HTML with JavaScript?",
+    choices: [".put", ".querySelector", ".add", ".append"],
+    answer: ".append"
   },
 
   {
-    title: "4",
-    choices: ["5", "6", "7", "8"],
-    answer: "5"
+    title: "If are var is created in a function what is it's scope?",
+    choices: ["local", "global", "universal", "scopey"],
+    answer: "local"
   },
 
   {
-    title: "5",
-    choices: ["9", "10", "11", "12"],
-    answer: "9"
+    title: "How to invoke a function when a button on the HTML is clicked?",
+    choices: [".addEventListner", ".target", ".eventListner", ".click"],
+    answer: ".addEventListner"
   },
   
 ];
@@ -191,7 +191,7 @@ function question3 (event) {
       submit[2].addEventListener("click",  function(event){
           event.preventDefault()
           var q3 = document.querySelector("input[name='q3']:checked")
-          if (q3.value == 1) {
+          if (q3.value == 4) {
               right++
           } else {
             wrong++
