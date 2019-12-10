@@ -106,14 +106,25 @@ if (secondsLeft <= 0) {
   clearInterval(timer)
   hi.textContent = "00"
 
-final()
+  questionBox.setAttribute("style", "visibility: hidden")
+  questionBox2.setAttribute("style", "visibility: hidden")
+  questionBox3.setAttribute("style", "visibility: hidden")
+  questionBox4.setAttribute("style", "visibility: hidden")
+  questionBox5.setAttribute("style", "visibility: hidden")
+
+  final()
+
 displayHighscores (highScoreSet)
+
+
 }
 
 }, 100)
 function wrongAnswer () {
 
-  if (secondsLeft <= 0) {} else {hi.textContent = secondsLeft - 15
+  if (secondsLeft <= 0) {
+    
+  } else {hi.textContent = secondsLeft - 15
   secondsLeft -= 15}
   
 }

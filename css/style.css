@@ -1,13 +1,18 @@
 .background {
     background-image: url("../images/darkness.png") ;
     z-index: -1;
+    width: 100%;
+    position: relative;
 }
 
 
 .timerDiv {
+    position: absolute;
     color: aliceblue;
     width:250px;
-    margin: auto;
+    left:0;
+    right:0;
+    margin:143px auto;
 
 }
 
@@ -20,87 +25,107 @@
 
 
 .home {
-   
-    width: 250px;
+    position: absolute;
+    max-width: 250px;
+    left:0;
+    right:0;
+    margin:143px auto;
     color: aliceblue;
-    margin: auto;
+    
     border: 3px groove aliceblue;
     border-radius: 20px;
     padding: 30px;
     text-align: center;
     background-color: #887d6f8c;
-    margin-top: 175px;
+   
    
 }
 
 .questionDiv {
-    
-    width: 250px;
+    position: absolute;
+    max-width: 250px;
     color: aliceblue;
-    margin: auto;
+    left:0;
+    right:0;
+    margin:143px auto;
     border: 3px groove aliceblue;
     border-radius: 20px;
     padding: 30px;
     text-align: center;
     background-color: #887d6f8c;
-    margin-top: -255px;
+    
     
 }
 
 .questionDiv2 {
+    position: absolute;
     width: 250px;
     color: aliceblue;
-    margin: auto;
+    left:0;
+    right:0;
+    margin:143px auto;
     border: 3px groove aliceblue;
     border-radius: 20px;
     padding: 30px;
     text-align: center;
     background-color: #887d6f8c;
-    margin-top: -266px;
+    
 }
 .questionDiv3 {
+    position: absolute;
     width: 250px;
     color: aliceblue;
-    margin: auto;
+    left:0;
+    right:0;
+    margin:143px auto;
     border: 3px groove aliceblue;
     border-radius: 20px;
     padding: 30px;
     text-align: center;
     background-color: #887d6f8c;
-    margin-top: -281px;
+   
 }
 .questionDiv4 {
+    position: absolute;
     width: 250px;
     color: aliceblue;
-    margin: auto;
+    left:0;
+    right:0;
+    margin:143px auto;
     border: 3px groove aliceblue;
     border-radius: 20px;
     padding: 30px;
     text-align: center;
     background-color: #887d6f8c;
-    margin-top: -281px;;
+    
 }
 .questionDiv5 {
+    position: absolute;
     width: 250px;
     color: aliceblue;
-    margin: auto;
+    left:0;
+    right:0;
+    margin:128px auto;
     border: 3px groove aliceblue;
     border-radius: 20px;
     padding: 30px;
     text-align: center;
     background-color: #887d6f8c;
-    margin-top: -311px;
+    
 }
 
 .final {
+    position: absolute;
     width: 250px;
     color: aliceblue;
-    margin: auto;
+    left:0;
+    right:0;
+    margin:105px auto;
     border: 3px groove aliceblue;
     border-radius: 20px;
     padding: 45px;
     text-align: center;
     background-color: #887d6f8c;
-    margin-top: -369px;
+    
 
 }
