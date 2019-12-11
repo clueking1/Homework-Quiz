@@ -119,7 +119,7 @@ displayHighscores (highScoreSet)
 
 }
 
-}, 100)
+}, 1000)
 function wrongAnswer () {
 
   if (secondsLeft <= 0) {
